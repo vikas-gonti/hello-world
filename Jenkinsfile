@@ -1,17 +1,26 @@
 node {
-  def mvnHome = tool 'M3'
-  def mvn = "${mvnHome}/bin/mvn"
+ 
+  stage("build stage"){
+    sh "build stage"
+  }
+  
+  stage("unit  stage"){
+        sh "build stage"
 
-  stage "Checkout"
-  checkout scm
+  }
+  
+  stage("integration stage"){
+        sh "build stage"
 
-  stage "Build"
-  sh "${mvn} compile"
+  }
+  
+  stage("deploy stage"){
+        sh "build stage"
 
-  stage "Test"
-  sh "${mvn} test"
-
-  stage "Package"
-  sh "${mvn} package"
-  archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+  }
+  
+  
+  
+  
+  
 }
